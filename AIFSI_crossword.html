@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Literacy Challenge - AIFSI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.16/index.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: 3px solid black;
+            display: block;
+        }
+        @media (max-width: 540px) {
+            .iframe-container iframe {
+                height: 400px;
+            }
+        }
+        .badge {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        @media (max-width: 640px) {
+            .badge {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen flex items-center justify-center p-4">
+
+    <main class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden border border-slate-100">
+        <!-- Header with Badge -->
+        <header class="bg-blue-700 text-white p-6 md:p-8 flex items-center gap-5">
+            <img 
+                src="ureka_limited_logo-2908203990.jpg" 
+                alt="UREKA Badge" 
+                class="badge rounded-full shadow-lg flex-shrink-0"
+            >
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight mb-1">AI Literacy Challenge</h1>
+                <p class="text-blue-100 text-sm font-medium">Test your knowledge and prepare for the future of AI</p>
+            </div>
+        </header>
+
+        <!-- Crossword Embed -->
+        <section class="p-6 md:p-8 bg-white">
+            <div class="iframe-container">
+                <iframe 
+                    width="500" 
+                    height="500" 
+                    style="border:3px solid black; margin:auto; display:block" 
+                    frameborder="0" 
+                    src="https://crosswordlabs.com/embed/ai-literacy"
+                    title="AI Literacy Crossword Puzzle">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="bg-slate-50 p-6 md:p-8 border-t border-slate-200 text-center">
+            <h2 class="text-xl font-bold text-slate-800 mb-3">
+                Sign Up for AIFSI today at <a href="https://www.aifsi.org" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline underline-offset-2 transition-colors">aifsi.org</a> ! Enroll to earn a UN-certified course certificate and demonstrate your AI readiness
+            </h2>
+            
+            <form id="signupForm" class="mt-6 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    id="emailInput"
+                    placeholder="Enter email address here and we'll reach out to you" 
+                    required
+                    class="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-slate-700 placeholder-slate-400"
+                >
+                <button 
+                    type="submit" 
+                    class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 whitespace-nowrap"
+                >
+                    Sign Up
+                </button>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 font-medium animate-fade-in">
+                <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Thank you! We will reach out to you shortly.
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const form = document.getElementById('signupForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Simulate form submission
+            form.style.opacity = '0.5';
+            form.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            }, 800);
+        });
+    </script>
+</body>
+</html>
+
